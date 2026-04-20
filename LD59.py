@@ -10,6 +10,7 @@ ecran = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
 
 tailleX , tailleY = ecran.get_size()
 
+
 ring = pygame.image.load('ring.png')
 ring = pygame.transform.scale(ring, (tailleX, tailleY))
 
@@ -55,13 +56,13 @@ class dentifrice():
         self.directY = 0
     def createtir(self, moveX, moveY):
         if self.degree == 0:
-            self.liste.append(goutte(moveX, moveY, self.x + 170, self.y , self.degree + 90))
+            self.liste.append(goutte(moveX, moveY, self.x + 120, self.y , self.degree + 90))
         if self.degree == 90:
             self.liste.append(goutte(moveX, moveY, self.x, self.y + 130, self.degree + 90))
         if self.degree == 180 :
             self.liste.append(goutte(moveX, moveY, self.x + 130, self.y + 300, self.degree + 90))
         if self.degree == 270:
-            self.liste.append(goutte(moveX, moveY, self.x + 300, self.y + 130, self.degree + 90))
+            self.liste.append(goutte(moveX, moveY, self.x + 300, self.y + 120, self.degree + 90))
     def tir(self, dent):
         suppr = []
         for i in range(len(tube.liste)):
@@ -77,17 +78,17 @@ class dentifrice():
             return True
         return False
     def offense(self, perso, tailleX):
-        x = perso.x - 200
-        x2 = perso.x + 200
-        y = perso.y - 200
-        y2 = perso.y + 200
-        if 0.185*tailleX > perso.x - 200 :
+        x = perso.x + 50 - 200
+        x2 = perso.x + 50 + 200
+        y = perso.y + 50 - 200
+        y2 = perso.y + 50 + 200
+        if 0.185*tailleX > perso.x + 50 - 200 :
             x = 0.185*tailleX
-        if tailleX - 0.185*tailleX < perso.x + 200 :
+        if tailleX - 0.185*tailleX < perso.x + 50 + 200 :
             x2 = tailleX - 0.185*tailleX
-        if 0.180*tailleY > perso.y - 200 :
+        if 0.180*tailleY > perso.y + 50 - 200 :
             y = 0.180*tailleY
-        if tailleY - 0.180*tailleY < perso.y + 200 :
+        if tailleY - 0.180*tailleY < perso.y + 50 + 200 :
             y2 = tailleY - 0.180*tailleY
         self.cibleX = random.randint(int(x), int(x2))
         self.cibleY = random.randint(int(y), int(y2))
@@ -175,23 +176,23 @@ def delai(time1, time2, ecart):
 
 
 def lv(score1, score2):
-    if score2 - score1 < 17:
+    if score2 - score1 < 20:
         ecart = 2
-        vitesse = 0.5
+        vitesse = 0.8
         vitesseBalle = 1
-    if score2 - score1 > 17:
+    if score2 - score1 > 20:
         ecart = 1.5
         vitesse = 1
         vitesseBalle = 1.5
-    if score2 - score1 > 34:
+    if score2 - score1 > 40:
         ecart = 1
         vitesse = 1.5
         vitesseBalle = 2
-    if score2 - score1 > 51:
+    if score2 - score1 > 60:
         ecart = 0.5
         vitesse = 2
         vitesseBalle = 2.5
-    if score2 - score1 > 68:
+    if score2 - score1 > 80:
         ecart = 0.5
         vitesse = 2.5
         vitesseBalle = 3
