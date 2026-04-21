@@ -189,7 +189,7 @@ def lv(score1, score2):
         vitesse = 1.5
         vitesseBalle = 2
     if score2 - score1 > 60:
-        ecart = 0.5
+        ecart = 0.75
         vitesse = 2
         vitesseBalle = 2.5
     if score2 - score1 > 80:
